@@ -50,6 +50,8 @@ module.exports = class WHMCS {
         //get the json
         const jsonBody = r.body;
 
+        if(jsonBody == undefined) return rej("WHMCS_OFFLINE")
+      
         //whmcs returned an api error
         if (jsonBody.error) return rej(jsonBody.error);
 
